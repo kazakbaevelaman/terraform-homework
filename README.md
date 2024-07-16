@@ -16,10 +16,10 @@ Conclusion
 1. Create a variables.tf File
 Define the variables you will use in your Terraform configuration in a variables.tf file. This file should contain the variable declarations, including any default values if applicable.
 
-`variable "region" {
+```variable "region" {
   description = "The AWS region to deploy resources in"
   type        = string
-}`
+}```
 
 variable "key_name" {
   description = "The name of the key pair"

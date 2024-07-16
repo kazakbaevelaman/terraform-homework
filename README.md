@@ -54,7 +54,7 @@ Run terraform destroy to destroy the resources created by your Terraform configu
 
 8. ## Additionaly you can use terraform validate command to check the syntax and validity of your Terraform files
 
-  terraform validate
+`  terraform validate`
 
 # Conclusion
 By using a terraform.tfvars file, you can separate variable values from your main configuration file, making your Terraform code cleaner and easier to manage. This approach also simplifies managing different resources in different regions by simply changing the terraform.tfvars file in the apply command.

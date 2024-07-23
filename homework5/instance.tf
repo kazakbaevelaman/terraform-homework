@@ -14,13 +14,13 @@ data "aws_ami" "ubuntu" {
 
 resource "aws_instance" "ubuntu" {
   ami = data.aws_ami.ubuntu.id
-  instance_type = var.ec2_instances.type[0]
+  instance_type = var.ec2_instances[0].type
   subnet_id = aws_subnet.public1.id
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
   associate_public_ip_address = true
   user_data = file("ubuntu-apache.sh")
   tags = {
-    Name = var.ec2_instances.name[0]
+    Name = var.ec2_instances[0].name 
   }
 }
 
@@ -45,13 +45,13 @@ data "aws_ami" "amazon" {
 
 resource "aws_instance" "amazon" {
   ami = data.aws_ami.amazon.id
-  instance_type = var.ec2_instances.type[1]
+  instance_type = var.ec2_instances[1].type
   subnet_id = aws_subnet.public2.id
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
   associate_public_ip_address = true
   user_data = file("amazon-apache.sh")
   tags = {
-    Name = var.ec2_instances.name[1]
+    Name = var.ec2_instances[1].name
   }
 }
 

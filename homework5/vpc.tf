@@ -8,11 +8,11 @@ resource "aws_vpc" "main" {
   }
 }
 
-# public subnet //correct way
+# public subnet 
 resource "aws_subnet" "public1" {
   vpc_id     = aws_vpc.main.id
   cidr_block = var.subnets[0].cidr
-  availability_zone = var.subnets[0].az
+  availability_zone = local.azs[0]
   tags = {
     Name = var.subnets[0].name
   }
@@ -20,29 +20,29 @@ resource "aws_subnet" "public1" {
 
 resource "aws_subnet" "public2" {
    vpc_id     = aws_vpc.main.id
-  cidr_block = var.subnets.cidr[1]
-  availability_zone = var.azs[1]
+  cidr_block = var.subnets[1].cidr
+  availability_zone = local.azs[1]
   tags = {
-    Name = var.subnets.name[1]
+    Name = var.subnets[1].name
   }
 }
 
 # private subnet 
 resource "aws_subnet" "private1" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = var.subnets.cidr[2]
-  availability_zone = var.azs[2]
+  cidr_block = var.subnets[2].cidr
+  availability_zone = local.azs[2]
   tags = {
-    Name = var.subnets.name[2]
+    Name = var.subnets[2].name
   }
 }
 
 resource "aws_subnet" "private2" {
   vpc_id     = aws_vpc.main.id
-  cidr_block = var.subnets.cidr[3]
-  availability_zone = var.azs[3]
+  cidr_block = var.subnets[3].cidr
+  availability_zone = local.azs[3]
   tags = {
-    Name = var.subnets.name[3]
+    Name = var.subnets[3].name
   }
 }
 

@@ -2,8 +2,8 @@ variable "region" {
   default = "us-west-2"
 }
 
-variable "azs" {
-  default = ["${var.region}a", "${var.region}b", "${var.region}c", "${var.region}d"]
+locals {
+  azs = ["${var.region}a", "${var.region}b", "${var.region}c", "${var.region}d"]
 }
 
 variable "route_table_names" {
@@ -27,10 +27,10 @@ variable "vpc_settings" {
 
 variable "subnets" {
   default = [
-    { cidr = "192.168.1.0/24", name = "public1",  az = "${var.azs[0]}" },
-    { cidr = "192.168.2.0/24", name = "public2",  az = "${var.azs[1]}" },
-    { cidr = "192.168.101.0/24", name = "private1", az = "${var.azs[2]}" },
-    { cidr = "192.168.102.0/24", name = "private2", az = "${var.azs[3]}" }
+    { cidr = "192.168.1.0/24", name = "public1" },
+    { cidr = "192.168.2.0/24", name = "public2" },
+    { cidr = "192.168.101.0/24", name = "private1" },
+    { cidr = "192.168.102.0/24", name = "private2" }
   ]
 }
 
